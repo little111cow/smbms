@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,6 +117,28 @@ public class UserDaoImpl implements UserDao {
             BaseDao.closeResources(null, pstm, rs);
         }
         return userList;
+    }
+
+    @Override
+    public boolean deluser(Connection connection, int id) {
+        String sql = "delete from  smbms_user where id=?;";
+        boolean flag = true;
+        PreparedStatement pstm = null;
+        Object[] params = {id};
+        if(connection!=null){
+            try{
+                pstm = connection.prepareStatement(sql);
+                if(BaseDao.execute(connection,pstm,sql,params)<=0){
+                    flag = false;
+                }
+            }catch (Exception e){
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null,pstm,null);
+            }
+        }
+        return flag;
     }
 
     @Override

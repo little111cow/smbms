@@ -38,6 +38,8 @@ public class UserServlet extends HttpServlet {
                 this.getrolelist(req, resp);
             }else if(method.equals("ucexist")){
                 this.ucexist(req, resp);
+            }else if(method.equals("deluser")){
+                this.deluser(req, resp);
             }
         }
     }
@@ -224,7 +226,7 @@ public class UserServlet extends HttpServlet {
 
         if(userRole!=null&&!userRole.equals("")) {
             try {
-                _userRole = Integer.valueOf(userCode.trim());  //注意此处要装箱为引用类型
+                _userRole = Integer.valueOf(userRole.trim());  //注意此处要装箱为引用类型
             }catch (Exception e){
                 _userRole = 3;  //转换出错给它设定默认值
                 e.printStackTrace();
@@ -299,6 +301,34 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+
+    @SuppressWarnings("all")
+    public void deluser(HttpServletRequest req, HttpServletResponse resp){
+        String temp = req.getParameter("uid");
+        Map<String,String> resultMap = new HashMap<>();
+        int id = -1;
+        if(temp!=null){
+            id = Integer.parseInt(temp);
+            UserService userService = new UserServiceImpl();
+            if(userService.deluser(id)) {
+                resultMap.put("delResult", "true");
+            }else {
+                resultMap.put("delResult","false");
+            }
+        }else{
+            resultMap.put("delResult","notexist");
+        }
+        resp.setContentType("application/json");
+        try {
+            PrintWriter writer = resp.getWriter();
+            writer.write(JSONArray.toJSONString(resultMap));
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        req.getRequestDispatcher("userlist.jsp");
     }
 
     }

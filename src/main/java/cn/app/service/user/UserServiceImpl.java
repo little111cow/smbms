@@ -22,6 +22,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean deluser(int id) {
+        boolean flag = true;
+        Connection connection = BaseDao.getConnect();
+        if(connection!=null){
+            try{
+                connection.setAutoCommit(false);
+                flag = userDao.deluser(connection,id);
+                connection.commit();
+            }catch (Exception e){
+                try {
+                    connection.rollback();
+                }catch (Exception e1){
+                    e1.printStackTrace();
+                }
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,null,null);
+            }
+        }
+        return flag;
+    }
+
+    @Override
     public boolean isUCexist(String userCode) {
         return userDao.isUCexist(userCode);
     }

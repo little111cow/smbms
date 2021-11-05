@@ -35,4 +35,7 @@ public interface UserDao {
 
     //后台验证用户名是否存在
     public boolean isUCexist(String userCode);
+
+    //根据id删除用户
+    public boolean deluser(Connection connection,int id);
 }
