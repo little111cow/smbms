@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -112,6 +113,7 @@ public class UserDaoImpl implements UserDao {
                 _user.setPhone(rs.getString("phone"));
                 _user.setUserRole(rs.getInt("userRole"));
                 _user.setUserRoleName(rs.getString("userRoleName"));
+                _user.setAge(_user.getAge());
                 userList.add(_user);
             }
             BaseDao.closeResources(null, pstm, rs);

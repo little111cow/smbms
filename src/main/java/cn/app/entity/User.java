@@ -55,15 +55,14 @@ public class User {
     public void setUserRoleName(String userRoleName) {
         this.userRoleName = userRoleName;
     }
+    public void setAge(Integer age){
+        this.age = age;
+    }
     public Integer getAge() {
 		/*long time = System.currentTimeMillis()-birthday.getTime();
 		Integer age = Long.valueOf(time/365/24/60/60/1000).IntegerValue();*/
-		if(birthday==null){  //解决空指针异常
-		    age = 0;
-        }else {
             Date date = new Date();
             Integer age = date.getYear() - birthday.getYear();
-        }
         return age;
     }
     public Integer getId() {
