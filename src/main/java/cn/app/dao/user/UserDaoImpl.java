@@ -2,11 +2,14 @@ package cn.app.dao.user;
 
 import cn.app.dao.BaseDao;
 import cn.app.entity.User;
+import com.mysql.jdbc.StringUtils;
 import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     //查询要登录的用户
@@ -72,7 +75,140 @@ public class UserDaoImpl implements UserDao {
         return flag;
     }
 
-    //    @Test
+    @Override
+    public List<User> getUserList(Connection connection, String userName, int userRole, int currentPageNo, int pageSize) throws Exception {
+        // TODO Auto-generated method stub
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<User> userList = new ArrayList<>();
+        if(connection != null){
+            StringBuffer sql = new StringBuffer();
+            sql.append("select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where u.userRole = r.id");
+            List<Object> list = new ArrayList<>();
+            if(!StringUtils.isNullOrEmpty(userName)){
+                sql.append(" and u.userName like ?");
+                list.add("%"+userName+"%");
+            }
+            if(userRole > 0){
+                sql.append(" and u.userRole = ?");
+                list.add(userRole);
+            }
+            sql.append(" order by creationDate DESC limit ?,?");
+            currentPageNo = (currentPageNo-1)*pageSize;
+            list.add(currentPageNo);
+            list.add(pageSize);
+
+            Object[] params = list.toArray();
+            System.out.println("sql ----> " + sql.toString());
+            rs = BaseDao.execute(connection, pstm,sql.toString(),params,rs);
+            while(rs.next()){
+                User _user = new User();
+                _user.setId(rs.getInt("id"));
+                _user.setUserCode(rs.getString("userCode"));
+                _user.setUserName(rs.getString("userName"));
+                _user.setGender(rs.getInt("gender"));
+                _user.setBirthday(rs.getDate("birthday"));
+                _user.setPhone(rs.getString("phone"));
+                _user.setUserRole(rs.getInt("userRole"));
+                _user.setUserRoleName(rs.getString("userRoleName"));
+                userList.add(_user);
+            }
+            BaseDao.closeResources(null, pstm, rs);
+        }
+        return userList;
+    }
+
+    @Override
+    public boolean isUCexist(String userCode) {
+        boolean flag = false;
+        String sql = "select * from smbms_user where userCode=? ";
+        Connection connection = BaseDao.getConnect();
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Object[] params = {userCode};
+        if(connection!=null){
+            try{
+                pstm = connection.prepareStatement(sql);
+                rs = BaseDao.execute(connection,pstm,sql,params,rs);
+                if(rs.next()){
+                    if(rs.getString("userCode").equals(userCode)&&!userCode.equals("")){
+                        flag = true;
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,pstm,rs);
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean addUser(Connection connection, User user) {
+        boolean flag = true;
+        int rs;
+        String sql = "insert into smbms_user(userCode,userName,userPassword,gender,birthday,phone,address,userRole,createdBy,creationDate,modifyBy,modifyDate) values(?,?,?,?,?,?,?,?,?,?,?,?);";
+        PreparedStatement pstm = null;
+        if(connection!=null){
+            try {
+                pstm = connection.prepareStatement(sql);
+                pstm.setObject(1,user.getUserCode());
+                pstm.setObject(2,user.getUserName());
+                pstm.setObject(3,user.getUserPassword());
+                pstm.setObject(4,user.getGender());
+                pstm.setObject(5,user.getBirthday());
+                pstm.setObject(6,user.getPhone());
+                pstm.setObject(7,user.getAddress());
+                pstm.setObject(8,user.getUserRole());
+                pstm.setObject(9,user.getCreatedBy());
+                pstm.setObject(10,user.getCreationDate());
+                pstm.setObject(11,user.getModifyBy());
+                pstm.setObject(12,user.getModifyDate());
+
+               rs = pstm.executeUpdate();
+               if(rs<=0){
+                   flag = false;
+               }
+            }catch (Exception e){
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null,pstm,null);
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public int getUserCount(Connection connection, String userName, int userRole) throws Exception {
+        // TODO Auto-generated method stub
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        int count = 0;
+        if(connection != null){
+            StringBuffer sql = new StringBuffer();
+            sql.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole = r.id");
+            List<Object> list = new ArrayList<Object>();
+            if(!StringUtils.isNullOrEmpty(userName)){
+                sql.append(" and u.userName like ?");
+                list.add("%"+userName+"%");
+            }
+            if(userRole > 0){
+                sql.append(" and u.userRole = ?");
+                list.add(userRole);
+            }
+            Object[] params = list.toArray();
+            System.out.println("sql ----> " + sql.toString());
+            rs = BaseDao.execute(connection, pstm,sql.toString(),params,rs);
+            if(rs.next()){
+                count = rs.getInt("count");
+            }
+            BaseDao.closeResources(null, pstm, rs);
+        }
+        return count;
+    }
+//    @Test
 //    public void test(){
 //        User user = getLoginUser( "admin","1234567");
 //        System.out.println(user.getUserPassword());

@@ -1,0 +1,3 @@
+# note
+
+​	如果在编辑器里测试通过而部署到服务器发生classnotfound错误，将maven导入的jar包拷贝到tomcat服务器下的lib目录。

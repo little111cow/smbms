@@ -58,8 +58,12 @@ public class User {
     public Integer getAge() {
 		/*long time = System.currentTimeMillis()-birthday.getTime();
 		Integer age = Long.valueOf(time/365/24/60/60/1000).IntegerValue();*/
-        Date date = new Date();
-        Integer age = date.getYear()-birthday.getYear();
+		if(birthday==null){  //解决空指针异常
+		    age = 0;
+        }else {
+            Date date = new Date();
+            Integer age = date.getYear() - birthday.getYear();
+        }
         return age;
     }
     public Integer getId() {

@@ -1,2 +1,0 @@
-maven引入对应的依赖后部署到服务器仍然有可能会出现ClassNotFound错误，
-解决方式是在tomcat服务器的lib库中加入对应依赖的jar包

@@ -36,7 +36,7 @@ $(function(){
 		success:function(data){//data：返回数据（json对象）
 			if(data != null){
 				userRole.html("");
-				var options = "<option value=\"0\">请选择</option>";
+				var options = "<option value=\"0\">select</option>";
 				for(var i = 0; i < data.length; i++){
 					//alert(data[i].id);
 					//alert(data[i].roleName);
@@ -67,9 +67,9 @@ $(function(){
 			dataType:"json",//ajax接口（请求url）返回的数据类型
 			success:function(data){//data：返回数据（json对象）
 				if(data.userCode == "exist"){//账号已存在，错误提示
-					validateTip(userCode.next(),{"color":"red"},imgNo+ " 该用户账号已存在",false);
+					validateTip(userCode.next(),{"color":"red"},imgNo+ " user exist",false);
 				}else{//账号可用，正确提示
-					validateTip(userCode.next(),{"color":"green"},imgYes+" 该账号可以使用",true);
+					validateTip(userCode.next(),{"color":"green"},imgYes+" ok",true);
 				}
 			},
 			error:function(data){//当访问时候，404，500 等非200的错误状态码
