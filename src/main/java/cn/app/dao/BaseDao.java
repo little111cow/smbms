@@ -50,7 +50,6 @@ public class BaseDao {
     //查询公共方法
     @SuppressWarnings("all")
     public static ResultSet execute(Connection conn, PreparedStatement preparedStatement,String sql,Object[] params,ResultSet rs){
-        conn = getConnect();
         try {
             preparedStatement = conn.prepareStatement(sql);
             if (params!=null) {  //这里需要判断是否有参数
@@ -68,7 +67,6 @@ public class BaseDao {
     //增删改公共方法
     @SuppressWarnings("all")
     public static int execute(Connection conn, PreparedStatement preparedStatement,String sql,Object[] params){
-        conn = getConnect();
         int rs=0;  //返回受影响的行数
         try {
             preparedStatement = conn.prepareStatement(sql);  //预编译

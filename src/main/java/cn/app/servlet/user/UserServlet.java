@@ -31,15 +31,17 @@ public class UserServlet extends HttpServlet {
             } else if (method.equals("pwdmodify")) {
                 this.pwdmodify(req, resp);
             } else if (method.equals("query")) {
-                this.query(req, resp);
+                this.query(req, resp);  //用户管理查询方法
             } else if (method.equals("add")) {
-                this.add(req, resp);
+                this.add(req, resp);  //用户管理添加用户方法
             } else if (method.equals("getrolelist")) {
-                this.getrolelist(req, resp);
+                this.getrolelist(req, resp);  //获取用户角色列表方法
             }else if(method.equals("ucexist")){
-                this.ucexist(req, resp);
+                this.ucexist(req, resp);  //后台判断用户名是否存在方法
             }else if(method.equals("deluser")){
-                this.deluser(req, resp);
+                this.deluser(req, resp);  //删除用户方法
+            }else if(method.equals("view")){
+                this.view(req, resp);  //用户信息查看方法
             }
         }
     }
@@ -132,6 +134,7 @@ public class UserServlet extends HttpServlet {
         System.out.println("queryUserName servlet--------"+queryUserName);
         System.out.println("queryUserRole servlet--------"+queryUserRole);
         System.out.println("query pageIndex--------- > " + pageIndex);
+        //可能出现的异常情况处理，增强健壮性
         if(queryUserName == null){
             queryUserName = "";
         }
@@ -153,13 +156,13 @@ public class UserServlet extends HttpServlet {
         //总数量（表）
         int totalCount	= userService.getUserCount(queryUserName,queryUserRole);
         //总页数
-        PageSupport pages=new PageSupport();
+        PageSupport pages=new PageSupport();  //分页支持工具类
 
-        pages.setCurrentPageNo(currentPageNo);
+        pages.setCurrentPageNo(currentPageNo);  //设置当前页，包含异常处理
 
-        pages.setPageSize(pageSize);
+        pages.setPageSize(pageSize);  //设置页面大小
 
-        pages.setTotalCount(totalCount);
+        pages.setTotalCount(totalCount);  //获得所用用户总数
 
         int totalPageCount = pages.getTotalPageCount();
 
@@ -170,12 +173,13 @@ public class UserServlet extends HttpServlet {
             currentPageNo = totalPageCount;
         }
 
-
+        //查询用户列表
         userList = userService.getUserList(queryUserName,queryUserRole,currentPageNo, pageSize);
-        req.setAttribute("userList", userList);
+        req.setAttribute("userList", userList);  //返回前端显示
         List<Role> roleList = null;
         userRoleService roleService = new userRoleServiceImpl();
-        roleList = roleService.getRoleList();
+        roleList = roleService.getRoleList();  //获取用户角色列表
+        //返回前端显示
         req.setAttribute("roleList", roleList);
         req.setAttribute("queryUserName", queryUserName);
         req.setAttribute("queryUserRole", queryUserRole);
@@ -183,7 +187,7 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("totalCount", totalCount);
         req.setAttribute("currentPageNo", currentPageNo);
         try {
-            req.getRequestDispatcher("userlist.jsp").forward(req, resp);
+            req.getRequestDispatcher("userlist.jsp").forward(req, resp);  //转发到用户显示页面
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -192,11 +196,12 @@ public class UserServlet extends HttpServlet {
 
     //添加用户
     public void add(HttpServletRequest req, HttpServletResponse resp){
-        User user = new User();
-        UserService userService = new UserServiceImpl();
-        int _gender = 1;
-        Date _birthday = null;
-        int _userRole = 3;
+        User user = new User();  //创建要添加的用户
+        UserService userService = new UserServiceImpl();  //调用业务层
+        int _gender = 1;  //设置性别默认值，增强健壮性
+        Date _birthday = null;  //设置生日默认值，增强健壮性
+        int _userRole = 3;  //设置用户角色默认值为普通员工
+        //获取前端参数
         String userCode = req.getParameter("userCode");
         String userName = req.getParameter("userName");
         String userPassword = req.getParameter("userPassword");
@@ -209,17 +214,14 @@ public class UserServlet extends HttpServlet {
             try {
                 _gender = Integer.valueOf(gender);  //注意此处要装箱为引用类型和实体类对应
             }catch (Exception e){
-                _gender = 1;  //转换出错给它设定默认值
                 e.printStackTrace();
             }
         }
 
         if(birthday!=null&&!birthday.equals("")) {
             try {
-                _birthday = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
-                System.out.println(_birthday);
+                _birthday = new SimpleDateFormat("yyyy-MM-dd").parse(birthday); //格式化日期
             }catch (ParseException e){
-                _birthday = null;  //转换出错给它设定默认值
                 e.printStackTrace();
             }
         }
@@ -228,10 +230,10 @@ public class UserServlet extends HttpServlet {
             try {
                 _userRole = Integer.valueOf(userRole.trim());  //注意此处要装箱为引用类型
             }catch (Exception e){
-                _userRole = 3;  //转换出错给它设定默认值
                 e.printStackTrace();
             }
         }
+        //给用户添加属性
         user.setUserCode(userCode);
         user.setUserRole(_userRole);
         user.setBirthday(_birthday);
@@ -242,13 +244,13 @@ public class UserServlet extends HttpServlet {
         user.setUserName(userName);
         //从session中获取当前登录修改者的身份
         user.setModifyBy(((User)req.getSession().getAttribute(Constants.USER_SESSION)).getUserRole());
-        user.setModifyDate(new Date());
+        user.setModifyDate(new Date());  //获得当前日期为修改时间
         user.setCreatedBy(((User)req.getSession().getAttribute(Constants.USER_SESSION)).getUserRole());
-        user.setCreationDate(new Date());
+        user.setCreationDate(new Date());  //获得当前日期为创建时间
         try {
-            if(userService.addUser(user)) {
+            if(userService.addUser(user)) {  //添加成功重定向自动重新查询显示
                 resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
-            }else {
+            }else {//失败转发到当前页面
                 req.getRequestDispatcher("useradd.jsp").forward(req, resp);
             }
         } catch (Exception e) {
@@ -257,14 +259,16 @@ public class UserServlet extends HttpServlet {
        }
 
     //获取角色列表，用以添加用户时选择
+    @SuppressWarnings("all")
     public void getrolelist(HttpServletRequest req, HttpServletResponse resp){
         userRoleService userRoleService = new userRoleServiceImpl();
-        List<Role> list = userRoleService.getRoleList();
+        List<Role> list = userRoleService.getRoleList();  //获取用户角色列表
 
+        //写入给前端显示
         resp.setContentType("application/json");
         try {
             PrintWriter writer = resp.getWriter();
-            writer.write(JSONArray.toJSONString(list));
+            writer.write(JSONArray.toJSONString(list));  //转为json格式写出
             writer.flush();
             writer.close();
         }catch (Exception e){
@@ -280,21 +284,21 @@ public class UserServlet extends HttpServlet {
     //后台给ajax传递验证用户名是否存在
     @SuppressWarnings("all")
     public void ucexist(HttpServletRequest req, HttpServletResponse resp){
+        //获取前端传递的用户名用以判断
         String userCode = req.getParameter("userCode");
-        System.out.println(userCode);
-        Map<String,String> resultMap = new HashMap<>();
+        Map<String,String> resultMap = new HashMap<>();  //存放判断结果
         UserService userService = new UserServiceImpl();
-        if (userService.isUCexist(userCode)) {
-            System.out.println(userService.isUCexist(userCode));
+        if (userService.isUCexist(userCode)) {  //存在
             resultMap.put("userCode", "exist");
-        } else {
+        } else { //不存在
             resultMap.put("userCode", "nonexist");
         }
 
+        //写出前端显示
         resp.setContentType("application/json");
         try{
             PrintWriter writer = resp.getWriter();
-            writer.write(JSONArray.toJSONString(resultMap));
+            writer.write(JSONArray.toJSONString(resultMap));  //转为json格式
             writer.flush();
             writer.close();
         }catch (Exception e){
@@ -304,31 +308,59 @@ public class UserServlet extends HttpServlet {
     }
 
     @SuppressWarnings("all")
+    //根据id删除用户
     public void deluser(HttpServletRequest req, HttpServletResponse resp){
-        String temp = req.getParameter("uid");
-        Map<String,String> resultMap = new HashMap<>();
+        String temp = req.getParameter("uid");  //获取前端要删除用户的id
+        Map<String,String> resultMap = new HashMap<>();  //存放删除结果
         int id = -1;
         if(temp!=null){
             id = Integer.parseInt(temp);
             UserService userService = new UserServiceImpl();
-            if(userService.deluser(id)) {
+            if(userService.deluser(id)) {  //成功
                 resultMap.put("delResult", "true");
-            }else {
+            }else {  //失败
                 resultMap.put("delResult","false");
             }
-        }else{
+        }else{   //用户不存在
             resultMap.put("delResult","notexist");
         }
+        //写出前端显示
         resp.setContentType("application/json");
         try {
             PrintWriter writer = resp.getWriter();
-            writer.write(JSONArray.toJSONString(resultMap));
+            writer.write(JSONArray.toJSONString(resultMap));  //转为json格式
             writer.flush();
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("userlist.jsp");
+        req.getRequestDispatcher("userlist.jsp");  //转发当前页面
+    }
+
+    //根据id查看用户
+    public void view(HttpServletRequest req, HttpServletResponse resp){
+        User user = null;
+        String uid = req.getParameter("uid");  //从前端获取用户id
+        int id = -1;
+        if(uid!=null&&!uid.equals("")){  //参数不空
+            id = Integer.valueOf(uid);
+        }
+        UserService userService = new UserServiceImpl();  //调用业务层
+        user = userService.view(id);
+        if(user!=null) {  //查有此人，重定向到用户信息查看页面
+            req.setAttribute("user",user);  //设置属性给前端页面取来显示
+            try {
+                req.getRequestDispatcher("userview.jsp").forward(req,resp);  //此处不能用重定向，应为请求只在一次请求中有效，重定向后user属性就没有了，前端就取不到，显示不出来
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else {  //查无此人，转发到当前页面
+            try {
+                req.getRequestDispatcher("userlist.jsp").forward(req, resp);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     }

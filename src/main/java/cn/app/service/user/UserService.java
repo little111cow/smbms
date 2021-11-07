@@ -19,4 +19,6 @@ public interface UserService {
     public boolean isUCexist(String userCode);  //后台验证用户名是否存在
 
     public boolean deluser(int id);  //根据id删除用户
+
+    public User view(int id);  //根据用户id查看用户信息
 }

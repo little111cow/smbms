@@ -38,4 +38,7 @@ public interface UserDao {
 
     //根据id删除用户
     public boolean deluser(Connection connection,int id);
+
+    //根据用户id查看用户信息
+    public User view(Connection connection,int id);
 }

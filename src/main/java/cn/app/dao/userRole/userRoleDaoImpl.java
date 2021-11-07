@@ -12,6 +12,7 @@ import java.util.List;
 
 public class userRoleDaoImpl implements userRoleDao {
     @Override
+    //获得用户角色列表
     public List<Role> getRoleList(Connection connection) throws Exception {
         String sql = "select * from smbms_role;";
         List<Role> list = new ArrayList<>();
@@ -19,10 +20,11 @@ public class userRoleDaoImpl implements userRoleDao {
         ResultSet rs = null;
         Role role ;
         if(connection!=null){
-            pstm = connection.prepareStatement(sql);
+            pstm = connection.prepareStatement(sql); //预编译
             try {
-                rs = BaseDao.execute(connection, pstm, sql, null, rs);
+                rs = BaseDao.execute(connection, pstm, sql, null, rs);  //执行查询
                 while(rs.next()){
+                    //封装
                     role = new Role();
                     role.setId(rs.getInt("id"));
                     role.setCreatedBy(rs.getInt("createdBy"));
@@ -36,7 +38,7 @@ public class userRoleDaoImpl implements userRoleDao {
             }catch (Exception e){
                 e.printStackTrace();
             }finally {
-                BaseDao.closeResources(null,pstm,rs);
+                BaseDao.closeResources(null,pstm,rs);  //关闭资源
             }
         }
         return list;
