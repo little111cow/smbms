@@ -21,4 +21,6 @@ public interface UserService {
     public boolean deluser(int id);  //根据id删除用户
 
     public User view(int id);  //根据用户id查看用户信息
+
+    public boolean modifyexe(User user);  //修改特定用户信息
 }

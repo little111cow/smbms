@@ -41,4 +41,7 @@ public interface UserDao {
 
     //根据用户id查看用户信息
     public User view(Connection connection,int id);
+
+    //修改用户信息
+    public boolean modifyexe(Connection connection,User user);
 }

@@ -21,6 +21,31 @@ public class UserServiceImpl implements UserService {
          return userDao.getLoginUser(userCode,password);
     }
 
+    //修改用户信息
+    @Override
+    public boolean modifyexe(User user) {
+        boolean flag = false;
+        Connection connection = BaseDao.getConnect();  //数据库连接
+        if(connection!=null){
+            try{
+                connection.setAutoCommit(false);  //开启事务
+                flag = userDao.modifyexe(connection,user);
+                connection.commit();  //提交事务
+            }catch (Exception e){
+                flag = false;
+                try {
+                    connection.rollback();  //回滚事务
+                }catch (Exception e1){
+                    e1.printStackTrace();
+                }
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,null,null); //关闭资源
+            }
+        }
+        return flag;
+    }
+
     @Override
     //根据用户id查看用户信息
     public User view(int id) {

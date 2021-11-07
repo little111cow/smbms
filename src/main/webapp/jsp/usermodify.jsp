@@ -56,6 +56,7 @@
 			 <div class="providerAddBtn">
                     <input type="button" name="save" id="save" value="保存" />
                     <input type="button" id="back" name="back" value="返回"/>
+                 <div class="info">${message}</div>
                 </div>
             </form>
         </div>

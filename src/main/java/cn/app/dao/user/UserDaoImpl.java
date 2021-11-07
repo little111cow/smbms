@@ -211,6 +211,31 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    //修改用户信息
+    public boolean modifyexe(Connection connection, User user) {
+        String sql = "update smbms_user set modifyBy=?,modifyDate=?,userName=?,gender=?,phone=?,address=?,userRole=? where id=?;";
+        boolean flag = false;
+        PreparedStatement pstm = null;
+        Object[] params = {user.getModifyBy(),user.getModifyDate(),user.getUserName(),user.getGender(),user.getPhone(),user.getAddress(),user.getUserRole(),user.getId()};
+        int rows;
+        if(connection!=null){
+            try{
+                rows = BaseDao.execute(connection,pstm,sql,params);  //执行更新
+                if(rows>0){
+                    flag = true;
+                    System.out.println("update=================>"+user.getUserName()+"信息成功！");
+                }
+            }catch (Exception e){
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null,pstm,null);  //关闭资源
+            }
+        }
+        return flag;
+    }
+
+    @Override
     //根据用户id查看用户信息
     public User view(Connection connection, int id) {
         //查询两个表获得用户信息和用户角色信息
@@ -232,6 +257,7 @@ public class UserDaoImpl implements UserDao {
                     user.setPhone(rs.getString("phone"));
                     user.setAddress(rs.getString("address"));
                     user.setUserRoleName(rs.getString("userRoleName"));
+                    user.setUserRole(rs.getInt("userRole"));
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -271,9 +297,5 @@ public class UserDaoImpl implements UserDao {
         }
         return count;
     }
-//    @Test
-//    public void test(){
-//        User user = getLoginUser( "admin","1234567");
-//        System.out.println(user.getUserPassword());
-//    }
+
 }

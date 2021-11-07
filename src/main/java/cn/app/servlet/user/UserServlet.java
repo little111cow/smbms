@@ -42,6 +42,10 @@ public class UserServlet extends HttpServlet {
                 this.deluser(req, resp);  //删除用户方法
             }else if(method.equals("view")){
                 this.view(req, resp);  //用户信息查看方法
+            }else if(method.equals("modify")){
+                this.modify(req,resp);  //用户信息修改方法
+            }else if(method.equals("modifyexe")){
+                this.modifyexe(req,resp);  //修改用户提交保存验证
             }
         }
     }
@@ -357,6 +361,86 @@ public class UserServlet extends HttpServlet {
         }else {  //查无此人，转发到当前页面
             try {
                 req.getRequestDispatcher("userlist.jsp").forward(req, resp);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //根据用户id修改用户信息页面，此方法不涉及数据库
+    public void modify(HttpServletRequest req, HttpServletResponse resp)dd{
+        //获取请求参数
+        String uid = req.getParameter("uid");
+        int id = -1;
+        User user = null;
+        UserService userService = new UserServiceImpl();  //调用业务层
+        if(uid!=null&&!uid.equals("")){
+            id = Integer.valueOf(uid);
+        }
+        user = userService.view(id);  //根据id把用户信息查出来，便于回显
+        if(user!=null) {  //存在相应用户
+            user.setId(id);  //此处不设置在modifyexe方法中取不到id，坑！
+            try {
+                req.getSession().setAttribute("user",user);
+                req.getRequestDispatcher("usermodify.jsp").forward(req, resp);  //用户修改页面
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{  //不存在
+            try {
+                req.getRequestDispatcher("userlist.jsp").forward(req, resp);  //用户显示页面
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //保存用户信息修改
+    public void modifyexe(HttpServletRequest req, HttpServletResponse resp){
+        //请求中获取修改后的参数
+        String userName = req.getParameter("userName");
+        String gender = req.getParameter("gender");
+//        String birthday = req.getParameter("birthday");  //用户生日是只读的
+        String phone = req.getParameter("phone");
+        String address = req.getParameter("address");
+        String userRole = req.getParameter("userRole");
+
+        User user = (User) req.getSession().getAttribute("user");  //取得要修改的用户
+
+        System.out.println(user.getId());
+        //将用户当前信息赋为默认值，避免错误
+        int _gender = user.getGender();
+        int _userRole = user.getUserRole();
+
+        if(gender!=null&&!gender.equals("")){
+            _gender = Integer.valueOf(gender);
+        }
+
+        if(userRole!=null&&!userRole.equals("")){
+            _userRole = Integer.valueOf(userRole);
+        }
+
+        //用户新属性封装
+        user.setUserRole(_userRole);
+        user.setAddress(address);
+        user.setUserName(userName);
+        user.setPhone(phone);
+        user.setGender(_gender);
+        user.setModifyDate(new Date());
+        user.setModifyBy(((User)req.getSession().getAttribute(Constants.USER_SESSION)).getUserRole());
+        UserService userService = new UserServiceImpl();
+        if(userService.modifyexe(user)){
+            try {
+                req.setAttribute(Constants.MESSAGE,"修改成功！");  //前端回显反馈信息
+                req.getRequestDispatcher("usermodify.jsp").forward(req,resp);
+            }catch (Exception e){
+                req.setAttribute(Constants.MESSAGE,"修改失败！");
+                e.printStackTrace();
+            }
+        }else{
+            req.setAttribute(Constants.MESSAGE,"修改失败！");
+            try{
+                req.getRequestDispatcher("usermodify.jsp").forward(req,resp);
             }catch (Exception e){
                 e.printStackTrace();
             }
