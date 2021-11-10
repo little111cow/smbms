@@ -15,7 +15,8 @@
 				
 				<span>供应商名称：</span>
 				<input name="queryProName" type="text" value="${queryProName }">
-				
+
+				<input type="hidden" name="pageIndex" value="1"/>
 				<input value="查 询" type="submit" id="searchbutton">
 				<a href="${pageContext.request.contextPath }/jsp/provideradd.jsp">添加供应商</a>
 			</form>
@@ -61,7 +62,12 @@
 				</tr>
 			</c:forEach>
         </table>
-
+			<input type="hidden" id="totalPageCount" value="${totalPageCount}"/>
+			<c:import url="rollpage.jsp">
+				<c:param name="totalCount" value="${totalCount}"/>
+				<c:param name="currentPageNo" value="${currentPageNo}"/>
+				<c:param name="totalPageCount" value="${totalPageCount}"/>
+			</c:import>
     </div>
 </section>
 
@@ -69,9 +75,9 @@
 <div class="zhezhao"></div>
 <div class="remove" id="removeProv">
    <div class="removerChid">
-       <h2>提示</h2>
+       <h2>tips</h2>
        <div class="removeMain" >
-           <p>你确定要删除该供应商吗？</p>
+           <p>sure delete the provider？</p>
            <a href="#" id="yes">确定</a>
            <a href="#" id="no">取消</a>
        </div>

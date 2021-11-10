@@ -59,6 +59,26 @@
         <url-pattern>/jsp/user.do</url-pattern>  <!--和前端页面对应-->
     </servlet-mapping>
 
+    <!--注册provider servlet-->
+    <servlet>
+        <servlet-name>Provider</servlet-name>
+        <servlet-class>cn.app.servlet.provider.ProviderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Provider</servlet-name>
+        <url-pattern>/jsp/provider.do</url-pattern>
+    </servlet-mapping>
+
+    <!--注册bill servlet-->
+    <servlet>
+        <servlet-name>bill</servlet-name>
+        <servlet-class>cn.app.servlet.bill.BillServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bill</servlet-name>
+        <url-pattern>/jsp/bill.do</url-pattern>
+    </servlet-mapping>
+
     <!--session自动过期时间设置30分钟-->
     <session-config>
         <session-timeout>30</session-timeout>

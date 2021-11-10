@@ -13,15 +13,15 @@ function deleteUser(obj){
 				obj.parents("tr").remove();
 			}else if(data.delResult == "false"){//删除失败
 				//alert("对不起，删除用户【"+obj.attr("username")+"】失败");
-				changeDLGContent("对不起，删除用户【"+obj.attr("username")+"】失败");
+				changeDLGContent("sorry，delete user【"+obj.attr("username")+"】fail");
 			}else if(data.delResult == "notexist"){
 				//alert("对不起，用户【"+obj.attr("username")+"】不存在");
-				changeDLGContent("对不起，用户【"+obj.attr("username")+"】不存在");
+				changeDLGContent("sorry，user【"+obj.attr("username")+"】don't exist");
 			}
 		},
 		error:function(data){
 			//alert("对不起，删除失败");
-			changeDLGContent("对不起，删除失败");
+			changeDLGContent("sorry，delete fail!");
 		}
 	});
 }
@@ -68,7 +68,7 @@ $(function(){
 
 	$(".deleteUser").on("click",function(){
 		userObj = $(this);
-		changeDLGContent("你确定要删除用户【"+userObj.attr("username")+"】吗？");
+		changeDLGContent("Are you sure you want to delete the user【"+userObj.attr("username")+"】？");
 		openYesOrNoDLG();
 	});
 	

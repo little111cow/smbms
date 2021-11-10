@@ -21,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@SuppressWarnings("all")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -130,7 +131,7 @@ public class UserServlet extends HttpServlet {
         //当前页码
         int currentPageNo = 1;
         /**
-         * http://localhost:8090/SMBMS/userlist.do
+         * http://localhost:8080/SMBMS/userlist.do
          * ----queryUserName --NULL
          * http://localhost:8090/SMBMS/userlist.do?queryname=
          * --queryUserName ---""
@@ -368,7 +369,7 @@ public class UserServlet extends HttpServlet {
     }
 
     //根据用户id修改用户信息页面，此方法不涉及数据库
-    public void modify(HttpServletRequest req, HttpServletResponse resp)dd{
+    public void modify(HttpServletRequest req, HttpServletResponse resp){
         //获取请求参数
         String uid = req.getParameter("uid");
         int id = -1;
@@ -431,8 +432,7 @@ public class UserServlet extends HttpServlet {
         UserService userService = new UserServiceImpl();
         if(userService.modifyexe(user)){
             try {
-                req.setAttribute(Constants.MESSAGE,"修改成功！");  //前端回显反馈信息
-                req.getRequestDispatcher("usermodify.jsp").forward(req,resp);
+                resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
             }catch (Exception e){
                 req.setAttribute(Constants.MESSAGE,"修改失败！");
                 e.printStackTrace();
@@ -446,6 +446,5 @@ public class UserServlet extends HttpServlet {
             }
         }
     }
-
     }
 
