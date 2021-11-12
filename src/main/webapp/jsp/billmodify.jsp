@@ -31,6 +31,11 @@
                     <input type="text" name="productCount" id="productCount" value="${bill.productCount }"> 
 					<font color="red"></font>
                 </div>
+              <div>
+                  <label for="productDescribe">商品描述：</label>
+                  <input type="text" name="productDescribe" id="productDescribe" value="${bill.productDesc}">
+                  <font color="red"></font>
+              </div>
                 <div>
                     <label for="totalPrice">总金额：</label>
                     <input type="text" name="totalPrice" id="totalPrice" value="${bill.totalPrice }"> 
@@ -40,6 +45,13 @@
                     <label for="providerId">供应商：</label>
                     <input type="hidden" value="${bill.providerId }" id="pid" />
 					<select name="providerId" id="providerId">
+                        <c:if test="${providerList != null }">
+                            <option value="${bill.providerId }">${bill.providerName}</option>
+                            <c:forEach var="provider" items="${providerList}">
+                                <option <c:if test="${provider.id == providerId}">selected="selected"</c:if>
+                                        value="${provider.id}">${provider.proName}</option>
+                            </c:forEach>
+                        </c:if>
 		        	</select>
 					<font color="red"></font>
                 </div>
@@ -57,6 +69,7 @@
                 <div class="providerAddBtn">
                   <input type="button" name="save" id="save" value="保存">
 				  <input type="button" id="back" name="back" value="返回" >
+                    <div class="info">${message}</div>
               	</div>
             </form>
         </div>

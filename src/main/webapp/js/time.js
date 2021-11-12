@@ -12,22 +12,22 @@ function fn(){
     var s = time.getSeconds();
     var week = time.getDay();
     switch (week){
-        case 0:week="日";
+        case 0:week="Sunday";
             break;
-        case 1:week="一";
+        case 1:week="Monday";
             break;
-        case 2:week="二";
+        case 2:week="Tuesday";
             break;
-        case 3:week="三";
+        case 3:week="Wednesday";
             break;
-        case 4:week="四";
+        case 4:week="Thursday";
             break;
-        case 5:week="五";
+        case 5:week="Friday";
             break;
-        case 6:week="六";
+        case 6:week="Saturday";
             break;
     }
-    str = year +"年"+totwo(mon)+"月"+totwo(day)+"日"+"&nbsp;"+totwo(h)+":"+totwo(m)+":"+totwo(s)+"&nbsp;"+"星期"+week;
+    str = year +"-"+totwo(mon)+"-"+totwo(day)+"&nbsp;"+totwo(h)+":"+totwo(m)+":"+totwo(s)+"&nbsp;"+"The Day:"+week;
     div.innerHTML = str;
 }
 fn();

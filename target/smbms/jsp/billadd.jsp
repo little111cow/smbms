@@ -40,8 +40,20 @@
              <div>
                  <label >供应商：</label>
                  <select name="providerId" id="providerId">
+                     <c:if test="${providerList != null }">
+                         <option value="0">请选择</option>
+                         <c:forEach var="provider" items="${providerList}">
+                             <option <c:if test="${provider.id == providerId}">selected="selected"</c:if>
+                                     value="${provider.id}">${provider.proName}</option>
+                         </c:forEach>
+                     </c:if>
 		         </select>
 				 <font color="red"></font>
+             </div>
+             <div>
+                 <label for="productDescribe">商品描述：</label>
+                 <input type="text" name="productDescribe" id="productDescribe" value="">
+                 <font color="red"></font>
              </div>
              <div>
                  <label >是否付款：</label>
@@ -52,6 +64,7 @@
                   <input type="button" name="add" id="add" value="保存">
 				  <input type="button" id="back" name="back" value="返回" >
              </div>
+             <div class="info">${message}</div>
          </form>
      </div>
  </div>

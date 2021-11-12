@@ -1,8 +1,10 @@
 package cn.app.dao.bill;
 
 import cn.app.dao.BaseDao;
+import cn.app.dao.provider.ProviderDaoImpl;
 import cn.app.entity.Bill;
 import com.mysql.jdbc.StringUtils;
+import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,156 +12,227 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("all")
 public class BillDaoImpl implements BillDao {
 
-	@Override
-	public int add(Connection connection, Bill bill) throws Exception {
-		// TODO Auto-generated method stub
-		PreparedStatement pstm = null;
-		int flag = 0;
-		if(null != connection){
-			String sql = "insert into smbms_bill (billCode,productName,productDesc," +
-					"productUnit,productCount,totalPrice,isPayment,providerId,createdBy,creationDate) " +
-					"values(?,?,?,?,?,?,?,?,?,?)";
-			Object[] params = {bill.getBillCode(),bill.getProductName(),bill.getProductDesc(),
-								bill.getProductUnit(),bill.getProductCount(),bill.getTotalPrice(),bill.getIsPayment(),
-								bill.getProviderId(),bill.getCreatedBy(),bill.getCreationDate()};
-			flag = BaseDao.execute(connection, pstm, sql, params);
-			BaseDao.closeResources(null, pstm, null);
-			System.out.println("dao--------flag " + flag);
-		}
-		return flag;
-	}
+    @Override
+    public int getCountBycondition(String queryProductName, Integer isPayment, Integer ProviderId) {
+        String sql = "select count(1) as count from smbms_bill where 1=1";
+        List<Object> list = new ArrayList<>();
+        StringBuffer sb = new StringBuffer(sql);
+        if(queryProductName!=null&&!queryProductName.equals("")){
+            sb.append(" and productName like ?");
+            list.add("%"+queryProductName+"%");
+        }
+        if(isPayment!=null){
+            sb.append(" and isPayment=?");
+            list.add(isPayment);
+        }
+        if(ProviderId!=null){
+            sb.append(" and providerId=?");
+            list.add(ProviderId);
+        }
+        System.out.println(sb.toString());
+        Object[] param = list.toArray();
 
-	@Override
-	public List<Bill> getBillList(Connection connection, Bill bill)
-			throws Exception {
-		// TODO Auto-generated method stub
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		List<Bill> billList = new ArrayList<Bill>();
-		if(connection != null){
-			StringBuffer sql = new StringBuffer();
-			sql.append("select b.*,p.proName as providerName from smbms_bill b, smbms_provider p where b.providerId = p.id");
-			List<Object> list = new ArrayList<Object>();
-			if(!StringUtils.isNullOrEmpty(bill.getProductName())){
-				sql.append(" and productName like ?");
-				list.add("%"+bill.getProductName()+"%");
-			}
-			if(bill.getProviderId() > 0){
-				sql.append(" and providerId = ?");
-				list.add(bill.getProviderId());
-			}
-			if(bill.getIsPayment() > 0){
-				sql.append(" and isPayment = ?");
-				list.add(bill.getIsPayment());
-			}
-			Object[] params = list.toArray();
-			System.out.println("sql --------- > " + sql.toString());
-			rs = BaseDao.execute(connection, pstm,sql.toString(), params, rs);
-			while(rs.next()){
-				Bill _bill = new Bill();
-				_bill.setId(rs.getInt("id"));
-				_bill.setBillCode(rs.getString("billCode"));
-				_bill.setProductName(rs.getString("productName"));
-				_bill.setProductDesc(rs.getString("productDesc"));
-				_bill.setProductUnit(rs.getString("productUnit"));
-				_bill.setProductCount(rs.getBigDecimal("productCount"));
-				_bill.setTotalPrice(rs.getBigDecimal("totalPrice"));
-				_bill.setIsPayment(rs.getInt("isPayment"));
-				_bill.setProviderId(rs.getInt("providerId"));
-				_bill.setProviderName(rs.getString("providerName"));
-				_bill.setCreationDate(rs.getTimestamp("creationDate"));
-				_bill.setCreatedBy(rs.getInt("createdBy"));
-				billList.add(_bill);
-			}
-			BaseDao.closeResources(null, pstm, rs);
-		}
-		return billList;
-	}
+        Connection connection = BaseDao.getConnect();
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        int count = 0;
+        if(connection!=null){
+            try{
+                rs = BaseDao.execute(connection,pstm,sb.toString(),param,rs);
+                if(rs.next()){
+                    count = rs.getInt("count");
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,pstm,rs);
+            }
+        }
+        return count;
+    }
 
-	@Override
-	public int deleteBillById(Connection connection, String delId)
-			throws Exception {
-		// TODO Auto-generated method stub
-		PreparedStatement pstm = null;
-		int flag = 0;
-		if(null != connection){
-			String sql = "delete from smbms_bill where id=?";
-			Object[] params = {delId};
-			flag = BaseDao.execute(connection, pstm, sql, params);
-			BaseDao.closeResources(null, pstm, null);
-		}
-		return flag;
-	}
+    @Override
+    public Bill getBillById(int id) {
+        String sql = "select * from smbms_bill where id=?";
+        Connection connection = BaseDao.getConnect();
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Bill bill = null;
+        Object[] param = {id};
+        if(connection!=null){
+            try{
+                rs = BaseDao.execute(connection,pstm,sql,param,rs);
+                while (rs.next()){
+                    bill = new Bill();
+                    bill.setId(rs.getInt("id"));
+                    bill.setTotalPrice(rs.getBigDecimal("totalPrice"));
+                    bill.setProviderId(rs.getInt("providerId"));
+                    bill.setProductName(rs.getString("productName"));
+                    bill.setProductCount(rs.getBigDecimal("productCount"));
+                    bill.setBillCode(rs.getString("billCode"));
+                    bill.setIsPayment(rs.getInt("isPayment"));
+                    bill.setProductUnit(rs.getString("productUnit"));
+                    bill.setProductDesc(rs.getString("productDesc"));
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,pstm,rs);
+            }
+        }
+        return bill;
+    }
 
-	@Override
-	public Bill getBillById(Connection connection, String id) throws Exception {
-		// TODO Auto-generated method stub
-		Bill bill = null;
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		if(null != connection){
-			String sql = "select b.*,p.proName as providerName from smbms_bill b, smbms_provider p " +
-					"where b.providerId = p.id and b.id=?";
-			Object[] params = {id};
-			rs = BaseDao.execute(connection, pstm,sql, params, rs);
-			if(rs.next()){
-				bill = new Bill();
-				bill.setId(rs.getInt("id"));
-				bill.setBillCode(rs.getString("billCode"));
-				bill.setProductName(rs.getString("productName"));
-				bill.setProductDesc(rs.getString("productDesc"));
-				bill.setProductUnit(rs.getString("productUnit"));
-				bill.setProductCount(rs.getBigDecimal("productCount"));
-				bill.setTotalPrice(rs.getBigDecimal("totalPrice"));
-				bill.setIsPayment(rs.getInt("isPayment"));
-				bill.setProviderId(rs.getInt("providerId"));
-				bill.setProviderName(rs.getString("providerName"));
-				bill.setModifyBy(rs.getInt("modifyBy"));
-				bill.setModifyDate(rs.getTimestamp("modifyDate"));
-			}
-			BaseDao.closeResources(null, pstm, rs);
-		}
-		return bill;
-	}
+    @Override
+    public boolean updateBill(Connection connection, Bill bill) {
+        boolean flag = false;
+        String sql = "update smbms_bill set productName=?,productUnit=?,productCount=?,totalPrice=?,providerId=?,"
+                +"isPayment=?,modifyBy=?,modifyDate=?,productDesc=? where id=?";
+        PreparedStatement pstm = null;
+        Object[] param = {bill.getProductName(),bill.getProductUnit(),bill.getProductCount(),bill.getTotalPrice(),
+                          bill.getProviderId(),bill.getIsPayment(),bill.getModifyBy(),bill.getModifyDate(),
+                          bill.getProductDesc(), bill.getId()};
+        int cnt = 0;
+        try{
+            cnt = BaseDao.execute(connection,pstm,sql,param);
+            if(cnt>0){
+                flag = true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            BaseDao.closeResources(null,pstm,null);
+        }
+        return flag;
+    }
 
-	@Override
-	public int modify(Connection connection, Bill bill) throws Exception {
-		// TODO Auto-generated method stub
-		int flag = 0;
-		PreparedStatement pstm = null;
-		if(null != connection){
-			String sql = "update smbms_bill set productName=?," +
-					"productDesc=?,productUnit=?,productCount=?,totalPrice=?," +
-					"isPayment=?,providerId=?,modifyBy=?,modifyDate=? where id = ? ";
-			Object[] params = {bill.getProductName(),bill.getProductDesc(),
-							bill.getProductUnit(),bill.getProductCount(),bill.getTotalPrice(),bill.getIsPayment(),
-							bill.getProviderId(),bill.getModifyBy(),bill.getModifyDate(),bill.getId()};
-			flag = BaseDao.execute(connection, pstm, sql, params);
-			BaseDao.closeResources(null, pstm, null);
-		}
-		return flag;
-	}
+    @Override
+    public List<Bill> getBillListByCondition(String queryProductName, Integer isPayment, Integer ProviderId, Integer currentPageNo, Integer pageSize) {
+       List<Bill> billList = new ArrayList<>();
+        String sql = "select * from smbms_bill where 1=1";
+        List<Object> list = new ArrayList<>();
+        StringBuffer sb = new StringBuffer(sql);
+        if(queryProductName!=null&&!queryProductName.equals("")){
+            sb.append(" and productName like ?");
+            list.add("%"+queryProductName+"%");
+        }
+        if(isPayment!=null){
+            sb.append(" and isPayment=?");
+            list.add(isPayment);
+        }
+        if(ProviderId!=null){
+            sb.append(" and providerId=?");
+            list.add(ProviderId);
+        }
+        if(currentPageNo!=null&&pageSize!=null){
+            sb.append(" order by creationDate desc limit ?,?");
+            list.add((currentPageNo-1)*pageSize);
+            list.add(pageSize);
+        }
 
-	@Override
-	public int getBillCountByProviderId(Connection connection, String providerId)
-			throws Exception {
-		// TODO Auto-generated method stub
-		int count = 0;
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		if(null != connection){
-			String sql = "select count(1) as billCount from smbms_bill where" +
-					"	providerId = ?";
-			Object[] params = {providerId};
-			rs = BaseDao.execute(connection, pstm,sql, params, rs);
-			if(rs.next()){
-				count = rs.getInt("billCount");
-			}
-			BaseDao.closeResources(null, pstm, rs);
-		}
-		
-		return count;
-	}
+        System.out.println(sb.toString());
+        Object[] param = list.toArray();
+
+        Connection connection = BaseDao.getConnect();
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        if(connection!=null){
+            try{
+                rs = BaseDao.execute(connection,pstm,sb.toString(),param,rs);
+                System.out.println(rs);
+                while(rs.next()){
+                    Bill bill = new Bill();
+                    bill.setBillCode(rs.getString("billCode"));
+                    bill.setCreationDate(rs.getTimestamp("creationDate"));
+                    bill.setId(rs.getInt("id"));
+                    bill.setProductName(rs.getString("productName"));
+                    bill.setProviderId(rs.getInt("providerId"));
+                    bill.setTotalPrice(rs.getBigDecimal("totalPrice"));
+                    bill.setIsPayment(rs.getInt("isPayment"));
+                    billList.add(bill);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(connection,pstm,rs);
+            }
+        }
+       return billList;
+    }
+
+    @Override
+    public boolean add(Connection connection, Bill bill) {
+        String sql = "insert into smbms_bill(billCode,productName,productDesc,productUnit,productCount," +
+                "totalPrice,isPayment,createdBy,creationDate,providerId) values(?,?,?,?,?,?,?,?,?,?)";
+        boolean flag = false;
+        PreparedStatement pstm = null;
+        Object[] param ={bill.getBillCode(),bill.getProductName(),bill.getProductDesc(),
+        bill.getProductUnit(),bill.getProductCount(),bill.getTotalPrice(),bill.getIsPayment(),
+        bill.getCreatedBy(),bill.getCreationDate(),bill.getProviderId()};
+        int cnt = 0;
+        if(connection!=null){
+            try{
+                cnt = BaseDao.execute(connection,pstm,sql,param);
+                if(cnt>0){
+                    flag = true;
+                }
+            }catch (Exception e){
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null,pstm,null);
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean delbillById(Connection connection, int id) {
+        boolean flag = false;
+        String sql = "delete from smbms_bill where id=? ";
+        Object[] param = {id};
+        PreparedStatement pstm =null;
+        int cnt;
+        if(connection!=null){
+            try{
+                cnt = BaseDao.execute(connection,pstm,sql,param);
+                if(cnt>0){
+                    flag = true;
+                }
+            }catch (Exception e){
+                flag = false;
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null,pstm,null);
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public int getBillCountByProviderId(Connection connection, String providerId) {
+        // TODO Auto-generated method stub
+        int count = 0;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        if(null != connection){
+            String sql = "select count(1) as billCount from smbms_bill where" +
+                    "	providerId = ?";
+            Object[] params = {providerId};
+            try {
+                rs = BaseDao.execute(connection, pstm, sql, params, rs);
+                if (rs.next()) {
+                    count = rs.getInt("billCount");
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                BaseDao.closeResources(null, pstm, rs);
+            }
+        }
+        return count;
+    }
 }

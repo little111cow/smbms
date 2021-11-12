@@ -27,20 +27,111 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="smbms@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="smbms@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="smbms@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="smbms: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="smbms@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="smbms: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="smbms_bill: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="BillServelet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BillServelet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/bill/BillServelet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+            <state relative-caret-position="536">
+              <caret line="165" column="76" lean-forward="false" selection-start-line="165" selection-start-column="76" selection-end-line="165" selection-end-column="76" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#doPost#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#query#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#view#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#modify#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#modifysave#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#delbill#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#add#0;class#BillServelet#0" expanded="false" />
+                <element signature="method#getproviderlist#0;class#BillServelet#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProviderServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/provider/ProviderServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="169" column="30" lean-forward="true" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+              <folding>
+                <element signature="method#delProvider#0;class#ProviderServlet#0" expanded="false" />
+                <element signature="method#modify#0;class#ProviderServlet#0" expanded="false" />
+                <element signature="method#getProviderById#0;class#ProviderServlet#0" expanded="false" />
+                <element signature="method#query#0;class#ProviderServlet#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="billmodify.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billmodify.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+              <folding>
+                <element signature="e#325#349#0" expanded="true" />
+                <element signature="method#getCountBycondition#0;class#BillDaoImpl#0" expanded="false" />
+                <element signature="method#updateBill#0;class#BillDaoImpl#0" expanded="false" />
+                <element signature="method#getBillListByCondition#0;class#BillDaoImpl#0" expanded="false" />
+                <element signature="method#delbillById#0;class#BillDaoImpl#0" expanded="false" />
+                <element signature="method#getBillCountByProviderId#0;class#BillDaoImpl#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="billview.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billview.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="13" column="71" lean-forward="true" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="billadd.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billadd.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,25 +159,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/userRole/userRoleDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/userRole/userRoleDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/userRole/userRoleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/userRole/userRoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/util/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/user/UserServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/useradd.js" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/user/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/user/UserServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/user/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/userRole/userRoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/userRole/userRoleDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/userRole/userRoleDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/user/UserDao.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f029892e-72bb-48ee-b057-3dfcdb10460b/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/usermodify.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/service/user/UserServiceImpl.java" />
@@ -102,21 +176,38 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/providermodify.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/provider/ProviderServlet.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/user/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/provider/ProviderServlet.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/user/UserServlet.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/providerlist.jsp" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/userlist.jsp" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/common/head.jsp" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/js/usermodify.js" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/js/userlist.js" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderService.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/provider/ProviderDao.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/provider/ProviderDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/user/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/provider/ProviderServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/user/UserServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/providerlist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/userlist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/common/head.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/usermodify.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/userlist.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/provider/ProviderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/provider/ProviderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/provider/ProviderDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/provider/ProviderDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/billlist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/bill/BillServelet.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f029892e-72bb-48ee-b057-3dfcdb10460b/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/entity/Bill.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/bill/BillService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/service/bill/BillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/bill/BillDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/dao/bill/BillDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/app/servlet/bill/BillServelet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/billmodify.jsp" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/js/time.js" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDao.java" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/bill/BillService.java" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/bill/BillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billadd.jsp" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billview.jsp" />
         <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/bill/BillServelet.java" />
-        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billlist.jsp" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDaoImpl.java" />
+        <option value="$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billmodify.jsp" />
       </list>
     </option>
   </component>
@@ -149,17 +240,6 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="smbms" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="smbms" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="smbms" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
-          <item name="clean" type="36feed69:MavenProjectsStructure$PluginNode" />
-        </path>
       </expand>
       <select />
     </treeState>
@@ -186,9 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,17 +327,7 @@
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smbms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smbms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="bill" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="smbms" type="b2602c69:ProjectViewProjectNode" />
@@ -271,6 +338,29 @@
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smbms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smbms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smbms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smbms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+              <item name="ProviderServlet" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="smbms" type="b2602c69:ProjectViewProjectNode" />
@@ -292,6 +382,9 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -300,7 +393,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-    <property name="SearchEverywhereHistoryKey" value="modifysave&#9;null&#9;null&#10;xml&#9;FILE&#9;file://D:/smbms/.idea/encodings.xml" />
+    <property name="SearchEverywhereHistoryKey" value="getBillCountByProviderId&#9;PSI&#9;JAVA://cn.app.dao.bill.BillDao#getBillCountByProviderId&#10;modifysave&#9;null&#9;null&#10;xml&#9;FILE&#9;file://D:/smbms/.idea/encodings.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -349,18 +442,18 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="LoginServlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BillDaoImpl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="cn.app.servlet.user.*" />
+          <option name="PATTERN" value="cn.app.dao.bill.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="smbms" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cn.app.servlet.user" />
-      <option name="MAIN_CLASS_NAME" value="cn.app.servlet.user.LoginServlet" />
+      <option name="PACKAGE_NAME" value="cn.app.dao.bill" />
+      <option name="MAIN_CLASS_NAME" value="cn.app.dao.bill.BillDaoImpl" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -609,19 +702,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.smbms-server" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.LoginServlet" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.userRoleDaoImpl" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.userRoleServiceImpl.test" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserDaoImpl" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserServiceImpl" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.userRoleDaoImpl" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.userRoleServiceImpl.test" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UserDaoImpl" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceImpl" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.BillDaoImpl" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserServiceImpl" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserDaoImpl" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.userRoleServiceImpl.test" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.userRoleDaoImpl" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LoginServlet" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BillDaoImpl" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceImpl" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserDaoImpl" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.userRoleServiceImpl.test" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.userRoleDaoImpl" />
       </list>
     </recent_temporary>
   </component>
@@ -647,44 +740,46 @@
       <workItem from="1635852657506" duration="9370000" />
       <workItem from="1636089059466" duration="27090000" />
       <workItem from="1636263789043" duration="30347000" />
-      <workItem from="1636550787207" duration="9814000" />
+      <workItem from="1636550787207" duration="10608000" />
+      <workItem from="1636637474955" duration="22104000" />
+      <workItem from="1636714888273" duration="9589000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserDaoImpl - 2021.11.05 at 16h 26m 04s.xml">
-      <configuration name="UserDaoImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 00h 56m 57s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 50m 22s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 00m 24s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 50m 38s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 01m 09s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 50m 55s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 02m 13s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 51m 07s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 06m 31s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 52m 36s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 08m 50s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 55m 14s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 10m 35s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 56m 02s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 11m 55s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 59m 34s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 14m 53s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImpl - 2021.11.05 at 16h 59m 48s.xml">
-      <configuration name="UserServiceImpl" configurationId="JUnit" />
+    <history-entry file="BillDaoImpl - 2021.11.12 at 01h 15m 20s.xml">
+      <configuration name="BillDaoImpl" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134118000" />
+    <option name="totallyTimeSpent" value="166605000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,6 +792,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -708,14 +804,14 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2935561" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15118791" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41527447" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38663486" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="调色板" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32338902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23508354" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31911448" sideWeight="0.84832454" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31911448" sideWeight="0.15167548" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24460043" sideWeight="0.82684827" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24460043" sideWeight="0.17315175" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="设计器" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05885529" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22678186" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -727,7 +823,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2398568" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42720765" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -739,7 +835,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -748,167 +844,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/userRole/userRoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/userRole/userRoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="method#getRoleList#0;class#userRoleServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/user/LogoutServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/userRole/userRoleDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-          <folding>
-            <element signature="method#getRoleList#0;class#userRoleDaoImpl#0" expanded="false" />
-            <marker date="1636266590719" expanded="true" signature="431:455" ph="select * fro... smbms_role" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/userRole/userRoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="97" column="16" lean-forward="false" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
-          <folding>
-            <element signature="e#2098#2099#0" expanded="false" />
-            <element signature="e#2129#2130#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f029892e-72bb-48ee-b057-3dfcdb10460b/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/note.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="108">
-            <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="78" column="33" lean-forward="false" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/providermodify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="158" column="13" lean-forward="true" selection-start-line="158" selection-start-column="13" selection-end-line="158" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/providerview.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/rollpage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/user/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="131" column="12" lean-forward="true" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="12" />
-          <folding>
-            <element signature="method#modifyexe#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#view#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#deluser#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#addUser#0;class#UserServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_address">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -916,40 +851,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_bill">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_provider">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/user/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/util/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/rollpage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1002,14 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/pwdmodify.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/frame.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -1038,7 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4212">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,14 +957,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="70" column="96" lean-forward="false" selection-start-line="70" selection-start-column="96" selection-end-line="70" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/user/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="272" column="15" lean-forward="false" selection-start-line="272" selection-start-column="15" selection-end-line="272" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1971">
+          <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/provider/ProviderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="26" column="126" lean-forward="false" selection-start-line="26" selection-start-column="126" selection-end-line="26" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/util/PageSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-837">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47-sources.jar!/com/mysql/jdbc/SQLError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="964" column="0" lean-forward="false" selection-start-line="964" selection-start-column="0" selection-end-line="964" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/entity/Provider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f029892e-72bb-48ee-b057-3dfcdb10460b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="52" lean-forward="true" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/rollpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/rollpage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/user/UserServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="1026">
+          <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
           <folding>
             <element signature="e#709#733#0" expanded="false" />
             <element signature="method#doGet#0;class#UserServlet#0" expanded="false" />
@@ -1087,55 +1056,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/user/UserService.java">
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/user/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="272" column="15" lean-forward="false" selection-start-line="272" selection-start-column="15" selection-end-line="272" selection-end-column="15" />
-          <folding>
-            <element signature="method#getLoginUser#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#modifyPassword#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#deluser#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#isUCexist#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#addUser#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#modifyexe#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#view#0;class#UserDaoImpl#0" expanded="false" />
-            <element signature="method#getUserCount#0;class#UserDaoImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/provider/ProviderServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1192">
-          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding>
-            <element signature="method#delProvider#0;class#ProviderServlet#0" expanded="false" />
-            <element signature="method#getProviderById#0;class#ProviderServlet#0" expanded="false" />
-            <element signature="method#add#0;class#ProviderServlet#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1971">
-          <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+        <state relative-caret-position="1543">
+          <caret line="104" column="31" lean-forward="false" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/provider/ProviderDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="92" column="13" lean-forward="false" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        <state relative-caret-position="2052">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
           <folding>
             <element signature="method#deleteProviderById#0;class#ProviderDaoImpl#0" expanded="false" />
             <element signature="method#getProviderById#0;class#ProviderDaoImpl#0" expanded="false" />
@@ -1144,54 +1076,203 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/provider/ProviderDao.java">
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/user/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="26" column="126" lean-forward="false" selection-start-line="26" selection-start-column="126" selection-end-line="26" selection-end-column="126" />
+        <state relative-caret-position="270">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="131" column="12" lean-forward="true" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/user/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/billview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderService.java">
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/entity/Bill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        <state relative-caret-position="297">
+          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/provider/ProviderServiceImpl.java">
+    <entry file="das://src:table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_provider">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="66" column="26" lean-forward="false" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+        <state relative-caret-position="648">
+          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_provider">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/pwdmodify.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billlist.jsp">
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/time.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2268">
-          <caret line="84" column="62" lean-forward="true" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
+        <state relative-caret-position="567">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/providerlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
+        <state relative-caret-position="1647">
           <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/js/billlist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billlist.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1404">
+          <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/bill/BillService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/service/bill/BillServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="method#delbillById#0;class#BillServiceImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/91746438/f029892e-72bb-48ee-b057-3dfcdb10460b/smbms.smbms_bill">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billadd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billview.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="13" column="71" lean-forward="true" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/provider/ProviderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="169" column="30" lean-forward="true" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+          <folding>
+            <element signature="method#delProvider#0;class#ProviderServlet#0" expanded="false" />
+            <element signature="method#modify#0;class#ProviderServlet#0" expanded="false" />
+            <element signature="method#getProviderById#0;class#ProviderServlet#0" expanded="false" />
+            <element signature="method#query#0;class#ProviderServlet#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/servlet/bill/BillServelet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="536">
+          <caret line="165" column="76" lean-forward="false" selection-start-line="165" selection-start-column="76" selection-end-line="165" selection-end-column="76" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#doPost#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#query#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#view#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#modify#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#modifysave#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#delbill#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#add#0;class#BillServelet#0" expanded="false" />
+            <element signature="method#getproviderlist#0;class#BillServelet#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/java/cn/app/dao/bill/BillDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+          <folding>
+            <element signature="e#325#349#0" expanded="true" />
+            <element signature="method#getCountBycondition#0;class#BillDaoImpl#0" expanded="false" />
+            <element signature="method#updateBill#0;class#BillDaoImpl#0" expanded="false" />
+            <element signature="method#getBillListByCondition#0;class#BillDaoImpl#0" expanded="false" />
+            <element signature="method#delbillById#0;class#BillDaoImpl#0" expanded="false" />
+            <element signature="method#getBillCountByProviderId#0;class#BillDaoImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../smbms/src/main/webapp/jsp/billmodify.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

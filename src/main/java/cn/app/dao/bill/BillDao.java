@@ -2,64 +2,30 @@ package cn.app.dao.bill;
 
 import cn.app.entity.Bill;
 
+import java.security.PublicKey;
 import java.sql.Connection;
 import java.util.List;
 
 public interface BillDao {
-	/**
-	 * 增加订单
-	 * @param connection
-	 * @param bill
-	 * @return
-	 * @throws Exception
-	 */
-	public int add(Connection connection, Bill bill)throws Exception;
+    /**
+     * 条件查询订单的数量
+     * @param queryProductName 查询的产品名称
+     * @param isPayment 是否付款1/2
+     * @param ProviderId
+     * @return int
+     * */
+    public int getCountBycondition(String queryProductName,Integer isPayment,Integer ProviderId);
 
+    //条件查询订单列表
+    public List<Bill> getBillListByCondition(String queryProductName,Integer isPayment,Integer ProviderId,Integer currentPageNo,Integer pageSize);
 
-	/**
-	 * 通过查询条件获取供应商列表-模糊查询-getBillList
-	 * @param connection
-	 * @param bill
-	 * @return
-	 * @throws Exception
-	 */
-	public List<Bill> getBillList(Connection connection, Bill bill)throws Exception;
-	
-	/**
-	 * 通过delId删除Bill
-	 * @param connection
-	 * @param delId
-	 * @return
-	 * @throws Exception
-	 */
-	public int deleteBillById(Connection connection, String delId)throws Exception;
-	
-	
-	/**
-	 * 通过billId获取Bill
-	 * @param connection
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public Bill getBillById(Connection connection, String id)throws Exception;
-	
-	/**
-	 * 修改订单信息
-	 * @param connection
-	 * @param bill
-	 * @return
-	 * @throws Exception
-	 */
-	public int modify(Connection connection, Bill bill)throws Exception;
+    public int getBillCountByProviderId(Connection connection, String providerId);
 
-	/**
-	 * 根据供应商ID查询订单数量
-	 * @param connection
-	 * @param providerId
-	 * @return
-	 * @throws Exception
-	 */
-	public int getBillCountByProviderId(Connection connection, String providerId)throws Exception;
+    public Bill getBillById(int id);
 
+    public boolean updateBill(Connection connection,Bill bill);
+
+    public boolean delbillById(Connection connection,int id);
+
+    public boolean add(Connection connection,Bill bill);
 }
